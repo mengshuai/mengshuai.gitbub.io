@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tagtest," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,19 +84,31 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="##JavaScript深拷贝浅拷贝问题
+浅拷贝和深拷贝只针对Object、Array。
+
+浅拷贝：浅拷贝是拷贝引用，拷贝后的引用都是指向同一个对象的实例，彼此之间的操作会互相影响（在内存中指向同一地址）深拷贝：在内存中重新分配地址，将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法递归复制到新对象上。（拷贝后彼此之间互不影响）
+
+浅拷贝拷贝原对象的引用最简单的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/12/21/hello-world/index.html">
+<meta property="og:title" content="shallow-deep-copy">
+<meta property="og:url" content="http://yoursite.com/2017/04/01/shallow-deep-copy/index.html">
 <meta property="og:site_name" content="孟帅的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-12-22T16:02:05.000Z">
+<meta property="og:description" content="##JavaScript深拷贝浅拷贝问题
+浅拷贝和深拷贝只针对Object、Array。
+
+浅拷贝：浅拷贝是拷贝引用，拷贝后的引用都是指向同一个对象的实例，彼此之间的操作会互相影响（在内存中指向同一地址）深拷贝：在内存中重新分配地址，将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法递归复制到新对象上。（拷贝后彼此之间互不影响）
+
+浅拷贝拷贝原对象的引用最简单的">
+<meta property="og:updated_time" content="2017-04-01T02:15:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="shallow-deep-copy">
+<meta name="twitter:description" content="##JavaScript深拷贝浅拷贝问题
+浅拷贝和深拷贝只针对Object、Array。
+
+浅拷贝：浅拷贝是拷贝引用，拷贝后的引用都是指向同一个对象的实例，彼此之间的操作会互相影响（在内存中指向同一地址）深拷贝：在内存中重新分配地址，将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法递归复制到新对象上。（拷贝后彼此之间互不影响）
+
+浅拷贝拷贝原对象的引用最简单的">
 
 
 
@@ -124,13 +136,13 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/21/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/01/shallow-deep-copy/"/>
 
 
 
 
 
-  <title> Hello World | 孟帅的博客 </title>
+  <title> shallow-deep-copy | 孟帅的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +265,7 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/21/hello-world/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/01/shallow-deep-copy/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="mengshuai">
@@ -277,7 +289,7 @@ Quick">
             
             
               
-                Hello World
+                shallow-deep-copy
               
             
           </h1>
@@ -292,8 +304,8 @@ Quick">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-21T19:13:33+08:00">
-                2016-12-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-01T10:15:07+08:00">
+                2017-04-01
               </time>
             
 
@@ -302,28 +314,6 @@ Quick">
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/catest/" itemprop="url" rel="index">
-                    <span itemprop="name">catest</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -350,15 +340,16 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>##JavaScript深拷贝浅拷贝问题</p>
+<p>浅拷贝和深拷贝只针对Object、Array。</p>
+<blockquote>
+<p><code>浅拷贝</code>：浅拷贝是拷贝引用，拷贝后的引用都是指向同一个对象的实例，彼此之间的操作会互相影响（在内存中指向同一地址）<br><code>深拷贝</code>：在内存中重新分配地址，将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法递归复制到新对象上。（拷贝后彼此之间互不影响）</p>
+</blockquote>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><h4 id="拷贝原对象的引用"><a href="#拷贝原对象的引用" class="headerlink" title="拷贝原对象的引用"></a>拷贝原对象的引用</h4><p>最简单的浅拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a:1, arr: [2,3] &#125;;</div><div class="line">var obj1 = obj;</div><div class="line">console.log(obj === obj1);  // true</div><div class="line">obj.a = 5;</div><div class="line">console.log(obj1.a)    // 5</div></pre></td></tr></table></figure></p>
+<h5 id="源对象拷贝实例，其属性对象拷贝引用。"><a href="#源对象拷贝实例，其属性对象拷贝引用。" class="headerlink" title="源对象拷贝实例，其属性对象拷贝引用。"></a>源对象拷贝实例，其属性对象拷贝引用。</h5><p>这种情况，外层源对象是拷贝实例，如果其属性元素为复杂杂数据类型时，内层元素拷贝引用。对源对象直接操作，不影响两外一个对象，但是对其属性操作时候，会改变两外一个对象的属性的只。常用方法为：Array.prototype.slice(), Array.prototype.concat(), jQury的$.extend({},obj)，例：Underscore —— _.clone()就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [&#123;c:1&#125;, &#123;d:2&#125;];</div><div class="line">var b = a.slice();</div><div class="line">console.log(a === b); // 输出false，说明外层数组拷贝的是实例</div><div class="line">a[0].c = 3;</div><div class="line">console.log(b[0].c); // 输出 3，说明其元素拷贝的是引用</div></pre></td></tr></table></figure>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>深拷贝后，两个对象，包括其内部的元素互不干扰。常见方法有JSON.parse(),JSON.stringify()，jQury的$.extend(true,{},obj)，lodash的<em>.cloneDeep和</em>.clone(value, true)。例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a:1, arr: [2,3] &#125;;</div><div class="line">//方法一:借助 JSON 全局对象（兼容IE8+）</div><div class="line">var obj1 = JSON.parse(JSON.stringify(obj));</div><div class="line">//验证</div><div class="line">console.log(obj === obj1) //输出false</div><div class="line">obj.a = 5;</div><div class="line">console.log(obj1.a) //输出1</div><div class="line">//方法二:利用递归</div><div class="line">var cloneObj = function(obj)&#123;</div><div class="line">    var str, newobj = obj.constructor === Array ? [] : &#123;&#125;;</div><div class="line">    for(var i in obj)&#123;</div><div class="line">        newobj[i] = typeof obj[i] === &apos;object&apos; ? </div><div class="line">        cloneObj(obj[i]) : obj[i]; </div><div class="line">    &#125;</div><div class="line">    return newobj;</div><div class="line">&#125;;</div><div class="line">var obj2 = cloneObj(obj);</div><div class="line">//方法三：jquery的$.extend(true,&#123;&#125;,obj)（但jQuery不能正确处理Int16Array的深复制！！！）</div><div class="line">var obj3 = $.extend(true, &#123;&#125;, obj);</div><div class="line">//方法四：lodash的_.cloneDeep和_.clone(value, true)</div><div class="line">var obj4 = _.cloneDeep(obj);</div></pre></td></tr></table></figure></p>
+<h4 id="通用方法"><a href="#通用方法" class="headerlink" title="通用方法"></a>通用方法</h4><p>可以将方法一和方法二整合成一个深拷贝的通用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var cloneObj = function(obj)&#123;</div><div class="line">    var str, newobj = obj.constructor === Array ? [] : &#123;&#125;;</div><div class="line">    if(typeof obj !== &apos;object&apos;)&#123;</div><div class="line">        return;</div><div class="line">    &#125; else if(window.JSON)&#123;</div><div class="line">        str = JSON.stringify(obj), //系列化对象</div><div class="line">        newobj = JSON.parse(str); //还原</div><div class="line">    &#125; else &#123;</div><div class="line">        for(var i in obj)&#123;</div><div class="line">            newobj[i] = typeof obj[i] === &apos;object&apos; ? </div><div class="line">            cloneObj(obj[i]) : obj[i]; //递归方法实现，对于IE7以及IE8的兼容模式window未内置JSON对象</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return newobj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -380,26 +371,20 @@ Quick">
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/tagtest/" rel="tag"># tagtest</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/22/My-New-Post/" rel="next" title="My New Post">
+                <i class="fa fa-chevron-left"></i> My New Post
+              </a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/22/My-New-Post/" rel="prev" title="My New Post">
-                My New Post <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -522,7 +507,7 @@ Quick">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.</span> <span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝原对象的引用"><span class="nav-number">1.1.</span> <span class="nav-text">拷贝原对象的引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源对象拷贝实例，其属性对象拷贝引用。"><span class="nav-number">1.1.1.</span> <span class="nav-text">源对象拷贝实例，其属性对象拷贝引用。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝"><span class="nav-number">2.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用方法"><span class="nav-number">2.1.</span> <span class="nav-text">通用方法</span></a></li></ol></li></ol></div>
             
 
           </div>

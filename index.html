@@ -248,6 +248,134 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/01/shallow-deep-copy/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mengshuai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="孟帅的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="孟帅的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/01/shallow-deep-copy/" itemprop="url">
+                  shallow-deep-copy
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-01T10:15:07+08:00">
+                2017-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##JavaScript深拷贝浅拷贝问题</p>
+<p>浅拷贝和深拷贝只针对Object、Array。</p>
+<blockquote>
+<p><code>浅拷贝</code>：浅拷贝是拷贝引用，拷贝后的引用都是指向同一个对象的实例，彼此之间的操作会互相影响（在内存中指向同一地址）<br><code>深拷贝</code>：在内存中重新分配地址，将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法递归复制到新对象上。（拷贝后彼此之间互不影响）</p>
+</blockquote>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><h4 id="拷贝原对象的引用"><a href="#拷贝原对象的引用" class="headerlink" title="拷贝原对象的引用"></a>拷贝原对象的引用</h4><p>最简单的浅拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a:1, arr: [2,3] &#125;;</div><div class="line">var obj1 = obj;</div><div class="line">console.log(obj === obj1);  // true</div><div class="line">obj.a = 5;</div><div class="line">console.log(obj1.a)    // 5</div></pre></td></tr></table></figure></p>
+<h5 id="源对象拷贝实例，其属性对象拷贝引用。"><a href="#源对象拷贝实例，其属性对象拷贝引用。" class="headerlink" title="源对象拷贝实例，其属性对象拷贝引用。"></a>源对象拷贝实例，其属性对象拷贝引用。</h5><p>这种情况，外层源对象是拷贝实例，如果其属性元素为复杂杂数据类型时，内层元素拷贝引用。对源对象直接操作，不影响两外一个对象，但是对其属性操作时候，会改变两外一个对象的属性的只。常用方法为：Array.prototype.slice(), Array.prototype.concat(), jQury的$.extend({},obj)，例：Underscore —— _.clone()就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [&#123;c:1&#125;, &#123;d:2&#125;];</div><div class="line">var b = a.slice();</div><div class="line">console.log(a === b); // 输出false，说明外层数组拷贝的是实例</div><div class="line">a[0].c = 3;</div><div class="line">console.log(b[0].c); // 输出 3，说明其元素拷贝的是引用</div></pre></td></tr></table></figure>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>深拷贝后，两个对象，包括其内部的元素互不干扰。常见方法有JSON.parse(),JSON.stringify()，jQury的$.extend(true,{},obj)，lodash的<em>.cloneDeep和</em>.clone(value, true)。例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a:1, arr: [2,3] &#125;;</div><div class="line">//方法一:借助 JSON 全局对象（兼容IE8+）</div><div class="line">var obj1 = JSON.parse(JSON.stringify(obj));</div><div class="line">//验证</div><div class="line">console.log(obj === obj1) //输出false</div><div class="line">obj.a = 5;</div><div class="line">console.log(obj1.a) //输出1</div><div class="line">//方法二:利用递归</div><div class="line">var cloneObj = function(obj)&#123;</div><div class="line">    var str, newobj = obj.constructor === Array ? [] : &#123;&#125;;</div><div class="line">    for(var i in obj)&#123;</div><div class="line">        newobj[i] = typeof obj[i] === &apos;object&apos; ? </div><div class="line">        cloneObj(obj[i]) : obj[i]; </div><div class="line">    &#125;</div><div class="line">    return newobj;</div><div class="line">&#125;;</div><div class="line">var obj2 = cloneObj(obj);</div><div class="line">//方法三：jquery的$.extend(true,&#123;&#125;,obj)（但jQuery不能正确处理Int16Array的深复制！！！）</div><div class="line">var obj3 = $.extend(true, &#123;&#125;, obj);</div><div class="line">//方法四：lodash的_.cloneDeep和_.clone(value, true)</div><div class="line">var obj4 = _.cloneDeep(obj);</div></pre></td></tr></table></figure></p>
+<h4 id="通用方法"><a href="#通用方法" class="headerlink" title="通用方法"></a>通用方法</h4><p>可以将方法一和方法二整合成一个深拷贝的通用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var cloneObj = function(obj)&#123;</div><div class="line">    var str, newobj = obj.constructor === Array ? [] : &#123;&#125;;</div><div class="line">    if(typeof obj !== &apos;object&apos;)&#123;</div><div class="line">        return;</div><div class="line">    &#125; else if(window.JSON)&#123;</div><div class="line">        str = JSON.stringify(obj), //系列化对象</div><div class="line">        newobj = JSON.parse(str); //还原</div><div class="line">    &#125; else &#123;</div><div class="line">        for(var i in obj)&#123;</div><div class="line">            newobj[i] = typeof obj[i] === &apos;object&apos; ? </div><div class="line">            cloneObj(obj[i]) : obj[i]; //递归方法实现，对于IE7以及IE8的兼容模式window未内置JSON对象</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return newobj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/My-New-Post/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -550,7 +678,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
