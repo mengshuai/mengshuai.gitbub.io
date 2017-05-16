@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>青青子巾的博客</title>
+  <title>Archives: 2017/5 | 青青子巾的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="青青子巾的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
 <meta property="og:site_name" content="青青子巾的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="青青子巾的博客">
@@ -168,177 +168,34 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-multiline-string" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/16/multiline-string/">多行字符串变相实现</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/16/multiline-string/" class="archive-article-date">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/16/multiline-string/" class="archive-article-date">
   	<time datetime="2017-05-16T07:35:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主要是利用函数的toString()方法实现。</p>
-<p>函数的toString方法返回函数的源码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f() &#123;</div><div class="line">  a();</div><div class="line">  b();</div><div class="line">  c();</div><div class="line">&#125;</div><div class="line"></div><div class="line">f.toString()</div><div class="line">// function f() &#123;</div><div class="line">//  a();</div><div class="line">//  b();</div><div class="line">//  c();</div><div class="line">// &#125;</div></pre></td></tr></table></figure>
-<p>函数内部的注释也可以返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function f() &#123;/*</div><div class="line">  这是一个</div><div class="line">  多行注释</div><div class="line">*/&#125;</div><div class="line"></div><div class="line">f.toString()</div><div class="line">// &quot;function f()&#123;/*</div><div class="line">//   这是一个</div><div class="line">//   多行注释</div><div class="line">// */&#125;&quot;</div></pre></td></tr></table></figure></p>
-<p>利用这一点，可以变相实现多行字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var multiline = function (fn) &#123;</div><div class="line">  var arr = fn.toString().split(&apos;\n&apos;);</div><div class="line">  return arr.slice(1, arr.length - 1).join(&apos;\n&apos;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function f() &#123;/*</div><div class="line">  这是一个</div><div class="line">  多行注释</div><div class="line">*/&#125;</div><div class="line"></div><div class="line">multiline(f);</div><div class="line">// &quot; 这是一个</div><div class="line">//   多行注释&quot;</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/16/multiline-string/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-debugger-err-fix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/01/debugger-err-fix/">JavaScript 调试常见报错以及修复方法</a>
+      <a class="archive-article-title" href="/2017/05/16/multiline-string/">多行字符串变相实现</a>
     </h1>
   
 
-        
-        <a href="/2017/04/01/debugger-err-fix/" class="archive-article-date">
-  	<time datetime="2017-04-01T09:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>（看到一篇调试JS很有用的文章，收藏一下）</p>
-<p>JavaScript 调试是一场噩梦：首先给出的错误非常难以理解，其次给出的行号不总有帮助。有个查找错误含义，及修复措施的列表，是不是很有用？</p>
-<p>以下是奇怪的 JavaScript 错误列表。同样的错误，不同的浏览器会给出不同的消息，因此有一些不同的例子。</p>
-        
-          <a class="article-more-a" href="/2017/04/01/debugger-err-fix/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">转载</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/01/debugger-err-fix/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-shallow-deep-copy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/01/shallow-deep-copy/">JavaScript深拷贝浅拷贝问题</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/01/shallow-deep-copy/" class="archive-article-date">
-  	<time datetime="2017-04-01T02:15:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>浅拷贝和深拷贝只针对Object、Array。</p>
-<blockquote>
-<p><code>浅拷贝</code>：浅拷贝是拷贝引用，拷贝后的引用都是指向同一个对象的实例，彼此之间的操作会互相影响（在内存中指向同一地址）<br><code>深拷贝</code>：在内存中重新分配地址，将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法递归复制到新对象上。（拷贝后彼此之间互不影响）</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/04/01/shallow-deep-copy/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -350,29 +207,19 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/01/shallow-deep-copy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
-
-
-
   
   
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -392,9 +239,9 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: 50,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
