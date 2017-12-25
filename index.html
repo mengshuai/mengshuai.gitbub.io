@@ -168,6 +168,105 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js-floatcount-solution" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/25/js-floatcount-solution/">js-floatcount-solution</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/25/js-floatcount-solution/" class="archive-article-date">
+  	<time datetime="2017-12-25T05:55:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript-浮点数陷阱及解法"><a href="#JavaScript-浮点数陷阱及解法" class="headerlink" title="JavaScript 浮点数陷阱及解法"></a>JavaScript 浮点数陷阱及解法</h2><p>在javaScript浮点计算时会出现：0.1 + 0.2 = 0.30000000000000004，1 - 0.9 = 0.09999999999999998，其原因是因为js中数字都是以IEEE-754标准格式表示的，也就是所谓的二进制，当用二进制表示小数时会出现位数是无穷的（不只有js会有这个问题），比如</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">十进制</th>
+<th style="text-align:center">二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.1</td>
+<td style="text-align:center">0.0001 1001 1001 1001 …</td>
+</tr>
+<tr>
+<td style="text-align:center">0.2</td>
+<td style="text-align:center">0.0011 0011 0011 0011 …</td>
+</tr>
+<tr>
+<td style="text-align:center">0.3</td>
+<td style="text-align:center">0.0100 1100 1100 1100 …</td>
+</tr>
+<tr>
+<td style="text-align:center">0.4</td>
+<td style="text-align:center">0.0110 0110 0110 0110 …</td>
+</tr>
+<tr>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.1</td>
+</tr>
+<tr>
+<td style="text-align:center">0.6</td>
+<td style="text-align:center">0.1001 1001 1001 1001 …</td>
+</tr>
+</tbody>
+</table>
+<p>由十进制转换成二进制计算完再次转换为十进制的时候，就出现了浮点误差,下面给出解决方案<br>
+        
+          <a class="article-more-a" href="/2017/12/25/js-floatcount-solution/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/25/js-floatcount-solution/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-get-url-parameter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -334,11 +433,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">转载</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">转载</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -541,11 +640,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">转载</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">转载</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
