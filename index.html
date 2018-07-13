@@ -168,6 +168,68 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-traverse-tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/traverse-tree/">traverse-tree</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/traverse-tree/" class="archive-article-date">
+  	<time datetime="2018-07-13T05:51:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="树形结构与扁平化结构互相转换、树形结构遍历"><a href="#树形结构与扁平化结构互相转换、树形结构遍历" class="headerlink" title="树形结构与扁平化结构互相转换、树形结构遍历"></a>树形结构与扁平化结构互相转换、树形结构遍历</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//将扁平的结构转换为树形结构</div><div class="line">function build(menuList)&#123;</div><div class="line">  console.time(&apos;build&apos;)</div><div class="line">  let temp = &#123;&#125;;</div><div class="line">  let ans = &#123;&#125;;</div><div class="line">  for(let i in menuList)&#123;</div><div class="line">    temp[menuList[i].id] = menuList[i];</div><div class="line">  &#125;</div><div class="line">  for(let i in temp)&#123;</div><div class="line">    if(temp[i].parent_id) &#123;</div><div class="line">      if(!temp[temp[i].parent_id].children) &#123;</div><div class="line">        temp[temp[i].parent_id].children = new Object();</div><div class="line">      &#125;</div><div class="line">      temp[temp[i].parent_id].children[temp[i].id] = temp[i];</div><div class="line">    &#125; else &#123;</div><div class="line">      ans[temp[i].id] =  temp[i];</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  console.timeEnd(&apos;build&apos;);</div><div class="line">  return ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 非递归遍历树 与 将树扁平化</div><div class="line">function traverseTree(node) &#123;</div><div class="line">	if (!node) &#123;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	var stack = [], result=[];</div><div class="line">	stack.push(node);</div><div class="line">	var tmpNode;</div><div class="line">	while (stack.length &gt; 0) &#123;</div><div class="line">		tmpNode = stack.pop();</div><div class="line">		result.push(tmpNode);</div><div class="line">		if (tmpNode.children &amp;&amp; tmpNode.children.length &gt; 0) &#123;</div><div class="line">			var i = tmpNode.children.length - 1;</div><div class="line">			for (i = tmpNode.children.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">				stack.push(tmpNode.children[i]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	result.map(function(item,index,array)&#123;</div><div class="line">		delete item.children;</div><div class="line">	&#125;)</div><div class="line">	console.log(result)</div><div class="line">	return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/traverse-tree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-js-floatcount-solution" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -542,7 +604,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 青青子巾
+    		&copy; 2018 青青子巾
     	</div>
       	
     </div>
